@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prática</title>
+</head>
+<body>
+    <section>
+        <h1>Insira: </h1>
+        Nome:  <input type="text" name="nome" id="nome"> <br>
+        Idade: <input type="number" name="idade" id="idade"> <br>
+        País: <input type="text" name="pais" id="pais"> <br>
+        <input type="submit" value="Enviar" onclick="resultado()">
+        <div id="res" ></div>
+    </section>
+
+    <script>
+        function resultado() {
+            var nome = window.document.querySelector('#nome')
+            var idade = window.document.querySelector('#idade')
+            var res = window.document.querySelector('#res')
+            nome = String(nome.value)
+            idade = Number(idade.value)
+            pais = String(pais.value)
+
+            if (pais == 'Brasil') {
+                res.innerHTML = `Olá ${nome},`
+                if (idade < 16) {
+                    res.innerHTML = `Olá ${nome}, você não está apta a votar!`
+                } else if (idade < 18 || idade > 65) {
+                    res.innerHTML = `Olá ${nome}, seu voto é opcional.`
+                } else {
+                    res.innerHTML = `Olá ${nome}, seu voto é obrigatório.`
+                }
+            } else {
+                res.innerHTML = `Olá ${nome}, você não está apto a votar!`
+            }
+        }
+    </script>
+</body>
+</html>
